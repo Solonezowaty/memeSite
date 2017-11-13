@@ -1,6 +1,7 @@
 package memeSite.dao;
 
-import model.Gif;
+
+import memeSite.model.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,6 @@ public class GifDaoImpl implements GifDao {
         names.add("cowboy-coder");
         names.add("infinite-andrew");
     }
-
 
     public List<Gif> findAll() {
         List<Gif> gifs = new ArrayList<>();

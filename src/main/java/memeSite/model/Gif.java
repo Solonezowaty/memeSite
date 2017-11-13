@@ -1,4 +1,4 @@
-package model;
+package memeSite.model;
 
 public class Gif {
 

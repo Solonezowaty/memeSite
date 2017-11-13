@@ -1,6 +1,8 @@
 package memeSite.dao;
 
-import model.Gif;
+
+
+import memeSite.model.Gif;
 
 import java.util.List;
 
