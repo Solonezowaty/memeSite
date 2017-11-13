@@ -1,23 +1,44 @@
 package model;
 
-import java.io.File;
+import memeSite.dao.GifDao;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Gif implements GifDao {
-    private String name;
-    public String
-    List<String> results = new ArrayList<String>();
-    File[] files = new File("/path/to/the/directory").listFiles();
-        for (File file : files) {
-        if (file.isFile()) {
-            results.add(file.getName());
-        }
+public class Gif {
+
+    String name;
+    String username;
+
+    public Gif(String name, String username) {
+        this.name=name;
+        this.username=username;
     }
 
-
-    @Override
-    public List<String> memeNames(String name) {
-        return null;
+    public String getName() {
+        return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUrl(){
+        return getName()+".gif";
+    }
+    // for (File file : files) {
+      //  if (file.isFile()) {
+       //     results.add(file.getName());
+      //  }
+   // }
+
+
 }
