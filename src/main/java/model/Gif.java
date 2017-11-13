@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Gif {
 
-    String name;
-    String username;
+    private String name;
+    private String username;
 
     public Gif(String name, String username) {
         this.name=name;
@@ -34,11 +34,4 @@ public class Gif {
     public String getUrl(){
         return getName()+".gif";
     }
-    // for (File file : files) {
-      //  if (file.isFile()) {
-       //     results.add(file.getName());
-      //  }
-   // }
-
-
 }
