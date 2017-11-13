@@ -10,7 +10,11 @@ public class GifDaoImpl implements GifDao {
 
     static {
         names.add("android-explosion");
-        names.add("");
+        names.add("ben-and-mike");
+        names.add("book-dominos");
+        names.add("compiler-bot");
+        names.add("cowboy-coder");
+        names.add("infinite-andrew");
     }
 
 
