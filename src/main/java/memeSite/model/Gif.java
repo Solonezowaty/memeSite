@@ -1,9 +1,4 @@
-package model;
-
-import memeSite.dao.GifDao;
-
-import java.util.ArrayList;
-import java.util.List;
+package memeSite.model;
 
 public class Gif {
 
