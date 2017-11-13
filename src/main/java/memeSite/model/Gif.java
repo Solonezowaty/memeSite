@@ -4,10 +4,26 @@ public class Gif {
 
     private String name;
     private String username;
+    private boolean favorites;
+
+
+    public Gif(String name, String username, boolean favorites) {
+        this.name = name;
+        this.username = username;
+        this.favorites = favorites;
+    }
 
     public Gif(String name, String username) {
-        this.name=name;
-        this.username=username;
+        this.name = name;
+        this.username = username;
+    }
+
+    public boolean isFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(boolean favorites) {
+        this.favorites = favorites;
     }
 
     public String getName() {
@@ -26,7 +42,7 @@ public class Gif {
         this.username = username;
     }
 
-    public String getUrl(){
-        return getName()+".gif";
+    public String getUrl() {
+        return getName() + ".gif";
     }
 }
