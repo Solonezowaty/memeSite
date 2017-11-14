@@ -1,7 +1,8 @@
 package memeSite.controller;
 
+import memeSite.dao.CategoryDao;
+import memeSite.dao.CategoryDaoImpl;
 import memeSite.dao.GifDaoImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class GifController {
    // @Autowired
     GifDaoImpl gifDao = new GifDaoImpl();
+    CategoryDaoImpl categoryDao = new CategoryDaoImpl();
 
 
     @GetMapping("/")
@@ -34,7 +36,7 @@ public class GifController {
 
     @GetMapping("/categories")
     public String categories(ModelMap modelMap){
-        modelMap.put("categories",gifDao.findCategory());
+        modelMap.put("categories", categoryDao.category());
         return "categories";
     }
 
