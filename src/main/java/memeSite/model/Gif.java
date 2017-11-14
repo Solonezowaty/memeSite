@@ -18,6 +18,14 @@ public class Gif {
         this.username = username;
     }
 
+    public Gif(String name, boolean favorites) {
+        this.name = name;
+        this.favorites = favorites;
+    }
+
+
+
+
     public boolean isFavorites() {
         return favorites;
     }
@@ -44,5 +52,14 @@ public class Gif {
 
     public String getUrl() {
         return getName() + ".gif";
+    }
+
+    @Override
+    public String toString() {
+        return "Gif{" +
+                "name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", favorites=" + favorites +
+                '}';
     }
 }

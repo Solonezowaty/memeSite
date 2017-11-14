@@ -9,22 +9,22 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class GifDaoImpl implements GifDao {
-    private static List<String> names = new ArrayList<>();
+    private static List<Gif> names = new ArrayList<>();
 
     static {
-        names.add("android-explosion");
-        names.add("ben-and-mike");
-        names.add("book-dominos");
-        names.add("compiler-bot");
-        names.add("cowboy-coder");
-        names.add("infinite-andrew");
+        names.add(new Gif("android-explosion",false));
+        names.add(new Gif("ben-and-mike",true));
+        names.add(new Gif("book-dominos",false));
+        names.add(new Gif("compiler-bot",true));
+        names.add(new Gif("cowboy-coder",false));
+        names.add(new Gif("infinite-andrew",true));
     }
 
     public List<Gif> findAll() {
         List<Gif> gifs = new ArrayList<>();
         int i =1;
-        for(String name:names){
-            gifs.add(new Gif(name, "username"+i++));
+        for(Gif name:names){
+            gifs.add(new Gif(name.getName(), "username"+i++));
         }
         return gifs;
     }
@@ -34,10 +34,10 @@ public class GifDaoImpl implements GifDao {
         List<Gif> gifs = new ArrayList<>();
         Random rand = new Random();
         int i =0;
-        for (String name:names) {
+        for (Gif name:names) {
             boolean result = rand.nextBoolean();
             if(result){
-                gifs.add(new Gif(name, "username"+i++));
+                gifs.add(new Gif(name.getName(), "username"+i++));
             }
         }
         return gifs;
