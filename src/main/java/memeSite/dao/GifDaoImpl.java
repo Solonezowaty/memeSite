@@ -3,9 +3,7 @@ package memeSite.dao;
 
 import memeSite.model.Gif;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class GifDaoImpl implements GifDao {
@@ -46,4 +44,5 @@ public class GifDaoImpl implements GifDao {
     public Gif findOne(String name){
         return findAll().stream().filter(a->a.getName().equals(name)).collect(Collectors.toList()).get(0);
     }
+
 }
