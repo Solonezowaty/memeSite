@@ -7,7 +7,7 @@ public class Gif {
     private boolean favorites;
 
 
-    public Gif(String name, String username, boolean favorites) {
+    public Gif(String name,String username,boolean favorites) {
         this.name = name;
         this.username = username;
         this.favorites = favorites;
