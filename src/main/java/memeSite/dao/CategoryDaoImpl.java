@@ -1,6 +1,7 @@
 package memeSite.dao;
 
 import memeSite.model.Category;
+import memeSite.model.Gif;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -46,10 +46,13 @@
 <div class="gifs container">
     <div class="chip" th:text="${category.name}">category name</div>
     <div class="row">
-        <h1>Miejsce na wyświetlenie gifów</h1>
+        <div th:each="category : ${gifs}" class="col s12 l4">
+            <a th:href="@{|/gif/${gif.name}|}">
+                <img th:src="@{|/gifs/${gif.name}.gif|}" />
+            </a>
+        </div>
     </div>
 </div>
-
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
 <script th:src="@{/app.js}"></script>

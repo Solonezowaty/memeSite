@@ -5,6 +5,7 @@ public class Gif {
     private String name;
     private String username;
     private boolean favorites;
+    private int id;
 
 
     public Gif(String name,String username,boolean favorites) {
@@ -18,9 +19,22 @@ public class Gif {
         this.username = username;
     }
 
-    public Gif(String name, boolean favorites) {
+    public Gif(String name, boolean favorites, int id) {
         this.name = name;
         this.favorites = favorites;
+        this.id = id;
+    }
+
+    public Gif(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public boolean isFavorites() {

@@ -1,5 +1,6 @@
 package memeSite.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import memeSite.dao.CategoryDao;
 import memeSite.dao.CategoryDaoImpl;
 import memeSite.dao.GifDaoImpl;
@@ -38,6 +39,15 @@ public class GifController {
     public String categories(ModelMap modelMap){
         modelMap.put("categories", categoryDao.category());
         return "categories";
+    }
+
+    @GetMapping("/category/{id}")
+    public String categoryDetails(@PathVariable int id, ModelMap modelMap){
+        // gifs
+        modelMap.put("gifs",gifDao.findGifById());
+        modelMap.put("category",gifDao.findByCategoryId(id));
+        // category
+        return "category";
     }
 
 }

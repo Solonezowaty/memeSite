@@ -1,6 +1,7 @@
 package memeSite.dao;
 
 
+import memeSite.model.Category;
 import memeSite.model.Gif;
 
 import java.util.*;
@@ -10,12 +11,12 @@ public class GifDaoImpl implements GifDao {
     private static List<Gif> names = new ArrayList<>();
 
     static {
-        names.add(new Gif("android-explosion",false));
-        names.add(new Gif("ben-and-mike",true));
-        names.add(new Gif("book-dominos",false));
-        names.add(new Gif("compiler-bot",true));
-        names.add(new Gif("cowboy-coder",false));
-        names.add(new Gif("infinite-andrew",true));
+        names.add(new Gif("android-explosion",false,1));
+        names.add(new Gif("ben-and-mike",true,3));
+        names.add(new Gif("book-dominos",false,2));
+        names.add(new Gif("compiler-bot",true,1));
+        names.add(new Gif("cowboy-coder",false,2));
+        names.add(new Gif("infinite-andrew",true,3));
     }
 
     public List<Gif> findAll() {
@@ -41,8 +42,20 @@ public class GifDaoImpl implements GifDao {
         return gifs;
     }
 
+    @Override
+    public List<Gif> findByCategoryId(int id) {
+        return findAll().stream().filter((g)-> g.getId()==id).collect(Collectors.toList());
+    }
+
     public Gif findOne(String name){
         return findAll().stream().filter(a->a.getName().equals(name)).collect(Collectors.toList()).get(0);
     }
 
+    public List<Gif> findGifById(){
+        List<Gif> gifsById = new ArrayList<>();
+        for (Gif name : names){
+            gifsById.add(new Gif(name.getId()));
+        }
+        return gifsById;
+    }
 }
