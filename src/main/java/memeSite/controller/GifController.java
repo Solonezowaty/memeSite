@@ -31,4 +31,11 @@ public class GifController {
         modelMap.addAttribute("gif",gifDao.findOne(name));
         return "gif-details";
     }
+
+    @GetMapping("/categories")
+    public String categories(ModelMap modelMap){
+        modelMap.put("categories",gifDao.findCategory());
+        return "categories";
+    }
+
 }

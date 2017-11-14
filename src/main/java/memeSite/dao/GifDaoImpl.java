@@ -10,12 +10,12 @@ public class GifDaoImpl implements GifDao {
     private static List<Gif> names = new ArrayList<>();
 
     static {
-        names.add(new Gif("android-explosion",false));
-        names.add(new Gif("ben-and-mike",true));
-        names.add(new Gif("book-dominos",false));
-        names.add(new Gif("compiler-bot",true));
-        names.add(new Gif("cowboy-coder",false));
-        names.add(new Gif("infinite-andrew",true));
+        names.add(new Gif("android-explosion",false,"Android"));
+        names.add(new Gif("ben-and-mike",true,"Funny"));
+        names.add(new Gif("book-dominos",false,"Programming" ));
+        names.add(new Gif("compiler-bot",true,"Funny"));
+        names.add(new Gif("cowboy-coder",false,"Android"));
+        names.add(new Gif("infinite-andrew",true,"Programming"));
     }
 
     public List<Gif> findAll() {
@@ -43,6 +43,14 @@ public class GifDaoImpl implements GifDao {
 
     public Gif findOne(String name){
         return findAll().stream().filter(a->a.getName().equals(name)).collect(Collectors.toList()).get(0);
+    }
+
+    public HashSet<Gif>findCategory(){
+        HashSet<Gif> categories = new HashSet<>();
+        for (Gif category: names){
+            categories.add(new Gif(category.getCategory()));
+        }
+        return categories;
     }
 
 }
