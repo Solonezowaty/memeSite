@@ -1,7 +1,6 @@
 package memeSite.dao;
 
 
-import memeSite.model.Category;
 import memeSite.model.Gif;
 
 import java.util.*;
@@ -23,7 +22,7 @@ public class GifDaoImpl implements GifDao {
         List<Gif> gifs = new ArrayList<>();
         int i =1;
         for(Gif name:names){
-            gifs.add(new Gif(name.getName(), "username"+i++));
+            gifs.add(new Gif(name.getName(),name.getId(),"username"+i++));
         }
         return gifs;
     }
@@ -43,8 +42,8 @@ public class GifDaoImpl implements GifDao {
     }
 
     @Override
-    public List<Gif> findByCategoryId(int id) {
-        return findAll().stream().filter((g)-> g.getId()==id).collect(Collectors.toList());
+    public Gif findByCategoryId(int id) {
+        return findAll().stream().filter((g)-> g.getId()==id).collect(Collectors.toList()).get(0);
     }
 
     public Gif findOne(String name){
@@ -53,8 +52,8 @@ public class GifDaoImpl implements GifDao {
 
     public List<Gif> findGifById(){
         List<Gif> gifsById = new ArrayList<>();
-        for (Gif name : names){
-            gifsById.add(new Gif(name.getId()));
+        for (Gif id : names){
+            gifsById.add(new Gif(id.getId()));
         }
         return gifsById;
     }

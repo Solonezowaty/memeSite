@@ -29,6 +29,13 @@ public class Gif {
         this.id = id;
     }
 
+
+    public Gif(String name, int id, String username) {
+        this.name = name;
+        this.username = username;
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
