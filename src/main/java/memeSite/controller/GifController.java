@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 @Controller
 public class GifController {
@@ -49,6 +52,21 @@ public class GifController {
        // System.out.println(categoryDao.findCategoryById(id));
         // category
         return "category";
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam String q, ModelMap modelMap){
+        if(gifDao.findAll().equals(q)){
+            modelMap.addAttribute("gif",gifDao.findOne(q));
+            return "gif-details";
+        }
+
+        /*if(categoryDao.findAllCategory().equals(q)){
+            categoryDao.
+            return "categories";
+        }*/
+        else
+        return "home";
     }
 
 }

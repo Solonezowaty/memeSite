@@ -1,8 +1,6 @@
 package memeSite.dao;
 
 import memeSite.model.Category;
-import memeSite.model.Gif;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,6 +39,4 @@ public class CategoryDaoImpl implements CategoryDao{
         }
         return cat;
     }
-
-
 }

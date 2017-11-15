@@ -34,8 +34,8 @@ public class GifDaoImpl implements GifDao {
         Random rand = new Random();
         int i =0;
         for (Gif name:names) {
-            boolean result = rand.nextBoolean();
-            if(result){
+
+            if(name.isFavorites()){
                 gifs.add(new Gif(name.getName(), "username"+i++));
             }
         }
