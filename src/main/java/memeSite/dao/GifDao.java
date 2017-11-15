@@ -9,4 +9,6 @@ public interface GifDao {
     Gif findByCategoryId(int id);
     Gif findOne(String name);
     List<Gif> findGifById(int id);
+    List<Gif> findGifByName(String name);
+
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -46,25 +47,26 @@ public class GifController {
     public String categoryDetails(@PathVariable int id, ModelMap modelMap){
         // gifs
         modelMap.put("gifs",gifDao.findGifById(id));
-        //System.out.println(gifDao.findGifById(id));
 
-        modelMap.put("category",categoryDao.findByCategoryId(id));
-       // System.out.println(categoryDao.findCategoryById(id));
+
+        modelMap.put("category",categoryDao.findCategoryById(id));
+
         // category
         return "category";
     }
 
     @GetMapping("/search")
     public String search(@RequestParam String q, ModelMap modelMap){
-        if(gifDao.findAll().equals(q)){
+        if(gifDao.findAll().stream().anyMatch(g->g.getName().equals(q))){
             modelMap.addAttribute("gif",gifDao.findOne(q));
             return "gif-details";
         }
 
-        /*if(categoryDao.findAllCategory().equals(q)){
-            categoryDao.
-            return "categories";
-        }*/
+        else if(categoryDao.findAllCategory().stream().anyMatch(c->c.getName().equals(q))){
+            modelMap.put("gifs",gifDao.findGifByName(q));
+            modelMap.put("category",categoryDao.findCategoryByName(q));
+            return "category";
+        }
         else
         return "home";
     }

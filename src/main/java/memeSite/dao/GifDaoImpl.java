@@ -28,6 +28,7 @@ public class GifDaoImpl implements GifDao {
         return gifs;
     }
 
+
     @Override
     public List<Gif> findFavorites() {
         List<Gif> gifs = new ArrayList<>();
@@ -59,4 +60,13 @@ public class GifDaoImpl implements GifDao {
         }
         return gifsById;
     }
+    public List<Gif> findGifByName(String name){
+        List<Gif> gifsByName = new ArrayList<>();
+        for (Gif gifName : names){
+            if(gifName.getName()==name){
+                gifsByName.add(new Gif(gifName.getName(),gifName.getId()));}
+        }
+        return gifsByName;
+    }
+
 }

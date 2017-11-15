@@ -18,7 +18,7 @@ public class CategoryDaoImpl implements CategoryDao{
     }
 
     @Override
-    public Category findByCategoryId(int id) {
+    public Category findCategoryById(int id) {
         return findAllCategory().stream().filter(c->c.getId()==id).collect(Collectors.toList()).get(0);
     }
 
@@ -30,13 +30,16 @@ public class CategoryDaoImpl implements CategoryDao{
         }
         return cat;
     }
-
-    public List<Category> findCategoryById(int id){
+    @Override
+    public Category findCategoryByName(String name) {
+        return findAllCategory().stream().filter(c->c.getName()==name).collect(Collectors.toList()).get(0);
+    }
+    /*public List<Category> findCategoryByName(String name){
         List<Category> cat = new ArrayList<>();
-        for(Category name:category()){
-            if(name.getId()==id)
-            cat.add(new Category(name.getName(),name.getId()));
+        for(Category nameCat:category()){
+            if(nameCat.getName()==name)
+            cat.add(new Category(nameCat.getName(),nameCat.getId()));
         }
         return cat;
-    }
+    }*/
 }
