@@ -63,10 +63,12 @@ public class GifDaoImpl implements GifDao {
     public List<Gif> findGifByName(String name){
         List<Gif> gifsByName = new ArrayList<>();
         for (Gif gifName : names){
-            if(gifName.getName()==name){
-                gifsByName.add(new Gif(gifName.getName(),gifName.getId()));}
+            if(gifName.getName().equals(name)){
+                gifsByName.add(new Gif(gifName.getName()));}
         }
         return gifsByName;
     }
+
+
 
 }

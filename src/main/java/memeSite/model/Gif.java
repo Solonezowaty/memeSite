@@ -40,6 +40,10 @@ public class Gif {
         this.id = id;
     }
 
+    public Gif(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.stream.Collectors;
+
 
 
 @Controller
@@ -59,15 +59,19 @@ public class GifController {
     public String search(@RequestParam String q, ModelMap modelMap){
         if(gifDao.findAll().stream().anyMatch(g->g.getName().equals(q))){
             modelMap.addAttribute("gif",gifDao.findOne(q));
+            System.out.println("dupa1111"+gifDao.findOne(q));
             return "gif-details";
         }
 
         else if(categoryDao.findAllCategory().stream().anyMatch(c->c.getName().equals(q))){
+
+           // System.out.println("Dupa"+gifDao.findGifByName(q));
             modelMap.put("gifs",gifDao.findGifByName(q));
+         //   System.out.println("dupa2"+categoryDao.findCategoryByName(q));
             modelMap.put("category",categoryDao.findCategoryByName(q));
             return "category";
         }
-        else
+
         return "home";
     }
 

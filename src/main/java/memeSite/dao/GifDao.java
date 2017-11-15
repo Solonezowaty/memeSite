@@ -11,4 +11,5 @@ public interface GifDao {
     List<Gif> findGifById(int id);
     List<Gif> findGifByName(String name);
 
+
 }
