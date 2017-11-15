@@ -5,9 +5,11 @@ import memeSite.model.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CategoryDaoImpl implements CategoryDao{
 
+    GifDaoImpl gifDao = new GifDaoImpl();
     @Override
     public List<Category> category() {
         List<Category> categoryList = new ArrayList<>();
@@ -16,4 +18,20 @@ public class CategoryDaoImpl implements CategoryDao{
         categoryList.add(new Category("Programming",3));
         return categoryList;
     }
+
+    @Override
+    public Category findByCategoryId(int id) {
+        return findAllCategory().stream().filter(c->c.getId()==id).collect(Collectors.toList()).get(0);
+    }
+
+    @Override
+    public List<Category> findAllCategory() {
+        List<Category> cat = new ArrayList<>();
+        for(Category name:category()){
+            cat.add(new Category(name.getCategory(),name.getId()));
+        }
+        return cat;
+    }
+
+
 }

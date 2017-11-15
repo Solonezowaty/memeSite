@@ -8,5 +8,5 @@ public interface GifDao {
     List<Gif> findFavorites();
     Gif findByCategoryId(int id);
     Gif findOne(String name);
-    List<Gif> findGifById();
+    List<Gif> findGifById(int id);
 }

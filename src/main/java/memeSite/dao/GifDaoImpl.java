@@ -1,6 +1,7 @@
 package memeSite.dao;
 
 
+
 import memeSite.model.Gif;
 
 import java.util.*;
@@ -50,10 +51,11 @@ public class GifDaoImpl implements GifDao {
         return findAll().stream().filter(a->a.getName().equals(name)).collect(Collectors.toList()).get(0);
     }
 
-    public List<Gif> findGifById(){
+    public List<Gif> findGifById(int id){
         List<Gif> gifsById = new ArrayList<>();
-        for (Gif id : names){
-            gifsById.add(new Gif(id.getId()));
+        for (Gif idName : names){
+            if(idName.getId()==id){
+            gifsById.add(new Gif(idName.getName(),idName.getId()));}
         }
         return gifsById;
     }

@@ -1,7 +1,5 @@
 package memeSite.controller;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import memeSite.dao.CategoryDao;
 import memeSite.dao.CategoryDaoImpl;
 import memeSite.dao.GifDaoImpl;
 import org.springframework.stereotype.Controller;
@@ -44,8 +42,8 @@ public class GifController {
     @GetMapping("/category/{id}")
     public String categoryDetails(@PathVariable int id, ModelMap modelMap){
         // gifs
-        modelMap.put("gifs",gifDao.findGifById());
-        modelMap.put("category",gifDao.findByCategoryId(id));
+        modelMap.put("gifs",gifDao.findGifById(id));
+        modelMap.put("category",categoryDao.findByCategoryId(id));
         // category
         return "category";
     }
