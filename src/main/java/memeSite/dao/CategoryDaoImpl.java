@@ -32,7 +32,7 @@ public class CategoryDaoImpl implements CategoryDao{
     }
     @Override
     public Category findCategoryByName(String name) {
-        return findAllCategory().stream().filter(c->c.getName()==name).collect(Collectors.toList()).get(0);
+        return findAllCategory().stream().filter(c->c.getName().equals(name)).collect(Collectors.toList()).get(0);
     }
     /*public List<Category> findCategoryByName(String name){
         List<Category> cat = new ArrayList<>();
