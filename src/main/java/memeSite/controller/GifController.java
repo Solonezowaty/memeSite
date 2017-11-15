@@ -43,7 +43,10 @@ public class GifController {
     public String categoryDetails(@PathVariable int id, ModelMap modelMap){
         // gifs
         modelMap.put("gifs",gifDao.findGifById(id));
+        //System.out.println(gifDao.findGifById(id));
+
         modelMap.put("category",categoryDao.findByCategoryId(id));
+       // System.out.println(categoryDao.findCategoryById(id));
         // category
         return "category";
     }

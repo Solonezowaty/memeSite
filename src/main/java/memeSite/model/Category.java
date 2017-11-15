@@ -10,8 +10,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getCategory() {
+    public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setCategory(String category) {

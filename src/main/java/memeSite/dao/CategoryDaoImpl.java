@@ -28,7 +28,16 @@ public class CategoryDaoImpl implements CategoryDao{
     public List<Category> findAllCategory() {
         List<Category> cat = new ArrayList<>();
         for(Category name:category()){
-            cat.add(new Category(name.getCategory(),name.getId()));
+            cat.add(new Category(name.getName(),name.getId()));
+        }
+        return cat;
+    }
+
+    public List<Category> findCategoryById(int id){
+        List<Category> cat = new ArrayList<>();
+        for(Category name:category()){
+            if(name.getId()==id)
+            cat.add(new Category(name.getName(),name.getId()));
         }
         return cat;
     }
