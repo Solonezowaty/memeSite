@@ -2,13 +2,15 @@ package memeSite.controller;
 
 import memeSite.dao.CategoryDaoImpl;
 import memeSite.dao.GifDaoImpl;
+import memeSite.model.Gif;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -17,6 +19,16 @@ public class GifController {
     GifDaoImpl gifDao = new GifDaoImpl();
     CategoryDaoImpl categoryDao = new CategoryDaoImpl();
 
+    private static List<Gif> names = new ArrayList<>();
+
+    static {
+        names.add(new Gif("android-explosion",false,1));
+        names.add(new Gif("ben-and-mike",true,3));
+        names.add(new Gif("book-dominos",false,2));
+        names.add(new Gif("compiler-bot",true,1));
+        names.add(new Gif("cowboy-coder",false,2));
+        names.add(new Gif("infinite-andrew",true,3));
+    }
 
     @GetMapping("/")
     public String home( ModelMap modelMap){

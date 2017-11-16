@@ -1,7 +1,11 @@
 package memeSite.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Category {
 
+    
     private String name;
     private int id;
 

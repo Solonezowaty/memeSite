@@ -8,21 +8,24 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class GifDaoImpl implements GifDao {
-    private static List<Gif> names = new ArrayList<>();
 
-    static {
-        names.add(new Gif("android-explosion",false,1));
-        names.add(new Gif("ben-and-mike",true,3));
-        names.add(new Gif("book-dominos",false,2));
-        names.add(new Gif("compiler-bot",true,1));
-        names.add(new Gif("cowboy-coder",false,2));
-        names.add(new Gif("infinite-andrew",true,3));
+
+    public List<Gif> gif(){
+        List<Gif> gifList = new ArrayList<>();
+        gifList.add(new Gif("android-explosion",false,1));
+        gifList.add(new Gif("ben-and-mike",true,3));
+        gifList.add(new Gif("book-dominos",false,2));
+        gifList.add(new Gif("compiler-bot",true,1));
+        gifList.add(new Gif("cowboy-coder",false,2));
+        gifList.add(new Gif("infinite-andrew",true,3));
+        return gifList;
     }
+
 
     public List<Gif> findAll() {
         List<Gif> gifs = new ArrayList<>();
         int i =1;
-        for(Gif name:names){
+        for(Gif name:gif()){
             gifs.add(new Gif(name.getName(),name.getId(),"username"+i++));
         }
         return gifs;
@@ -34,7 +37,7 @@ public class GifDaoImpl implements GifDao {
         List<Gif> gifs = new ArrayList<>();
         Random rand = new Random();
         int i =0;
-        for (Gif name:names) {
+        for (Gif name:gif()) {
 
             if(name.isFavorites()){
                 gifs.add(new Gif(name.getName(), "username"+i++));
@@ -54,7 +57,7 @@ public class GifDaoImpl implements GifDao {
 
     public List<Gif> findGifById(int id){
         List<Gif> gifsById = new ArrayList<>();
-        for (Gif idName : names){
+        for (Gif idName : gif()){
             if(idName.getId()==id){
             gifsById.add(new Gif(idName.getName(),idName.getId()));}
         }
@@ -62,7 +65,7 @@ public class GifDaoImpl implements GifDao {
     }
     public List<Gif> findGifByName(String name){
         List<Gif> gifsByName = new ArrayList<>();
-        for (Gif gifName : names){
+        for (Gif gifName : gif()){
             if(gifName.getName().equals(name)){
                 gifsByName.add(new Gif(gifName.getName()));}
         }
