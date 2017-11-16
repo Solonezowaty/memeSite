@@ -1,5 +1,8 @@
 package memeSite.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Gif {
 
     private String name;
