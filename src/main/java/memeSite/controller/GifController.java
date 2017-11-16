@@ -64,10 +64,7 @@ public class GifController {
         }
 
         else if(categoryDao.findAllCategory().stream().anyMatch(c->c.getName().equals(q))){
-
-           // System.out.println("Dupa"+gifDao.findGifByName(q));
             modelMap.put("gifs",gifDao.findGifByName(q));
-         //   System.out.println("dupa2"+categoryDao.findCategoryByName(q));
             modelMap.put("category",categoryDao.findCategoryByName(q));
             return "category";
         }
