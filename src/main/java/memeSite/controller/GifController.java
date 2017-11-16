@@ -3,6 +3,7 @@ package memeSite.controller;
 import memeSite.dao.CategoryDaoImpl;
 import memeSite.dao.GifDaoImpl;
 import memeSite.model.Gif;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,9 +50,14 @@ public class GifController {
         return "gif-details";
     }
 
+    @GetMapping("/add-category")
+    public String addCategory( ModelMap modelMap){
+        return "add-category";
+    }
+
     @GetMapping("/categories")
     public String categories(ModelMap modelMap){
-        modelMap.put("categories", categoryDao.category());
+        modelMap.put("categories", categoryDao.findAllCategory());
         return "categories";
     }
 
@@ -76,7 +82,7 @@ public class GifController {
         }
 
         else if(categoryDao.findAllCategory().stream().anyMatch(c->c.getName().equals(q))){
-            modelMap.put("gifs",gifDao.findGifByName(q));
+            modelMap.put("gifs",gifDao.findGifById(categoryDao.findIdByName(q)));
             modelMap.put("category",categoryDao.findCategoryByName(q));
             return "category";
         }

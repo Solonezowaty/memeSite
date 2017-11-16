@@ -1,18 +1,16 @@
 package memeSite.model;
 
-import javax.persistence.Entity;
-
-@Entity
 public class Category {
 
-    
     private String name;
-    private int id;
+    private Integer id;
 
-    public Category(String name, int id) {
+    public Category(String name, Integer id) {
         this.name = name;
         this.id = id;
     }
+
+    public Category(){}
 
     public String getName() {
         return name;

@@ -10,7 +10,6 @@ public class CategoryDaoImpl implements CategoryDao {
 
     GifDaoImpl gifDao = new GifDaoImpl();
 
-    @Override
     public List<Category> category() {
         List<Category> categoryList = new ArrayList<>();
         categoryList.add(new Category("Funny", 1));
@@ -40,6 +39,18 @@ public class CategoryDaoImpl implements CategoryDao {
 
         //return findAllCategory().stream().filter(c->c.getName().equals(name)).collect(Collectors.toList()).get(0);
 
+    }
+
+    public int findIdByName(String name){
+        List<Category> catId = new ArrayList<>();
+        int idCat=0;
+        for(Category id : category())
+        {
+            if(id.getName().equals(name)){
+                idCat=id.getId();
+            }
+        }
+        return idCat;
     }
     /*public List<Category> findCategoryByName(String name){
         List<Category> cat = new ArrayList<>();
